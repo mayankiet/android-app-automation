@@ -1,0 +1,66 @@
+//apply plugin: 'java'
+//
+//
+//sourceCompatibility = 1.7
+//targetCompatibility = 1.7
+//version = '1.0'
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//test {
+//    useTestNG(){
+//        suites 'Testng.xml'
+//        useDefaultListeners = false
+//    }
+//}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.5"
+    }
+}
+
+plugins {
+    id 'io.qameta.allure' version("2.5")
+}
+
+plugins {
+    id 'java'
+
+}
+compileJava { options.encoding = "UTF-8" }
+
+allure {
+    version = '2.7'
+    autoconfigure = false
+    aspectjweaver = true
+}
+group 'mocktest'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    dependsOn clean, compileTestJava
+    useTestNG(){
+        suites 'Testng.xml'
+        useDefaultListeners = false
+    }
+}
+
+dependencies {
+    testImplementation group: 'org.testng', name: 'testng', version: '6.14.3'
+    implementation group: 'io.appium', name: 'java-client', version: '7.5.1'
+    implementation group: 'com.relevantcodes', name: 'extentreports', version: '2.40.2'
+    implementation group: 'com.aventstack', name: 'extentreports', version: '4.0.0'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+}
