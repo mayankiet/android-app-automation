@@ -16,5 +16,5 @@ public class Constants {
     public static final String LUMMO_APP = "/lummo.apk";
     public static final String USR_DIR = "user.dir";
     public static final String MOBILE_NUMBER = "411556677";
-    public static final String MOBILE_NUMBER_FIELD = "//android.view.ViewGroup[@content-desc=\"loginPage_countryCodeDropDown\"]/android.view.ViewGroup";
+
 }
